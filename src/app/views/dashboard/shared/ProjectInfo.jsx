@@ -14,7 +14,22 @@ const useStyles = makeStyles(theme => ({
 
 
 const ProjectInfo = ({projects, project}) => {
-
+    projects =[
+        {
+        id: "somethsrin",
+        name: "anme",
+        noOfAssignments: 3
+    },{
+        id: "somewrfthin",
+        name: "anme",
+        noOfAssignments: 2
+    },{
+        id: "somethwfin",
+        name: "anme",
+        noOfAssignments: 1
+    },
+    
+]
   const classes = useStyles();
 
   if(project == null){
@@ -29,6 +44,7 @@ const ProjectInfo = ({projects, project}) => {
             <small className="text-muted">{item.name}</small>
             <div className="pt-8" />
             <MatxProgressBar value={100} color="primary" text="Ranodm" />
+            <MatxProgressBar value={100} color="primary" text={"Assigments : " + item.noOfAssignments} />
             <div className="py-4" />
             </div>
           )
