@@ -5,6 +5,7 @@ import {
 } from "@material-ui/core";
 
 import ProjectView from "./shared/ProjectView";
+import ProjectInfo from "./shared/ProjectInfo";
 import { withStyles } from "@material-ui/styles";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -18,7 +19,8 @@ class Dashboard1 extends Component {
     loading: true,
     success: false,
     dashboardData: [],
-    error: {}
+    error: {},
+    currentSubject: null
   };
   constructor(props) {
     super(props);
@@ -32,7 +34,7 @@ class Dashboard1 extends Component {
 
   componentWillReceiveProps(nextProps) {
 
-    console.log(nextProps.dashboard.data);
+    //console.log(nextProps.dashboard.data);
 
     this.setState({
       loading: nextProps.dashboard.loading,
@@ -44,8 +46,10 @@ class Dashboard1 extends Component {
   }
 
   selectProject(index) {
-    console.log(index)
-    this.props.history.push('/subject/view')
+    this.setState({
+      currentSubject: this.state.dashboardData.subjectData[index]
+    })
+    //.log(this.state.currentSubject)
   }
 
   render() {
@@ -60,9 +64,11 @@ class Dashboard1 extends Component {
         </div>
         <div className="analytics m-sm-30 mt--72">
           <Grid container spacing={3}>
-            
+          <Grid item lg={8} md={8} sm={12} xs={12}>
             <ProjectView theme={theme} subjectData={this.state.dashboardData.subjectData} selectProject={this.selectProject}/>
-            
+            </Grid>
+            <ProjectInfo projects={this.state.dashboardData.subjectData} project={this.state.currentSubject}/>
+
           </Grid>
         </div>
       </Fragment>

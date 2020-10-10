@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 
 const ProjectView = ({theme, subjectData, selectProject}) => {
-  console.log(subjectData);
+  //console.log(subjectData);
   return (
     <Grid container spacing={3} className="mb-24">
       {subjectData.map((project, index) => {
