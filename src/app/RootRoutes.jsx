@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import dashboardRoutes from "./views/dashboard/DashboardRoutes";
+import subjectRoutes from "./views/subjects/SubjectRoutes";
 import sessionRoutes from "./views/sessions/SessionRoutes";
 
 const redirectRoute = [
@@ -21,7 +22,8 @@ const routes = [
   ...sessionRoutes,
   ...dashboardRoutes,
   ...redirectRoute,
-  ...errorRoute
+  ...errorRoute,
+  ...subjectRoutes
 ];
 
 export default routes;

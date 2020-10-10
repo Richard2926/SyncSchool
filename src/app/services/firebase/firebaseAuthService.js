@@ -90,7 +90,7 @@ class FirebaseAuthService {
     .doc(uid)
     .collection("subjects")
     .get();
-    console.log("Bruh2")
+    //console.log("Bruh2")
 
     projects.docs.forEach((project) => {
       subjectData.push(project.data())

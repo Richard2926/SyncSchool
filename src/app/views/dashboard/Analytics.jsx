@@ -20,7 +20,10 @@ class Dashboard1 extends Component {
     dashboardData: [],
     error: {}
   };
-
+  constructor(props) {
+    super(props);
+    this.selectProject = this.selectProject.bind(this);
+  }
   componentDidMount() {
     this.props.getDashboardData({
       uid: this.props.user.uid
@@ -29,7 +32,7 @@ class Dashboard1 extends Component {
 
   componentWillReceiveProps(nextProps) {
 
-    //console.log(nextProps.dashboard.data);
+    console.log(nextProps.dashboard.data);
 
     this.setState({
       loading: nextProps.dashboard.loading,
@@ -42,6 +45,7 @@ class Dashboard1 extends Component {
 
   selectProject(index) {
     console.log(index)
+    this.props.history.push('/subject/view')
   }
 
   render() {
